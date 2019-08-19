@@ -1,3 +1,9 @@
+/*
+Sergio Gonzalez Muriel
+Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
+Test code for showing matrices correctly in C++03
+*/
+
 #include <stdio.h>
 
 using namespace std;

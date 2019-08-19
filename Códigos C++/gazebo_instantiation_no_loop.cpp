@@ -1,3 +1,9 @@
+/*
+Sergio Gonzalez Muriel
+Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
+Code for instantiating a simulation in gazebo
+*/
+
 #include <bits/stdc++.h> 
 #include <unistd.h>
 #include <iostream>
@@ -5,10 +11,10 @@
 #include <sstream>
 #include <math.h>
 
-#define MAX_X 2.5
-#define MIN_X 2.0
-#define MAX_Y 2.0
-#define MIN_Y -2.0
+#define MAX_X 2
+#define MIN_X 2
+#define MAX_Y 0.0
+#define MIN_Y 0.0
 // Number of box.urdf to use (box_1 z-size=0.1, box_2 z-size=0.2...)
 #define MIN_BOX 3
 #define MAX_BOX 5

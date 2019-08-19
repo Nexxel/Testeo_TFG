@@ -12,17 +12,17 @@ switch nargin
     case 1
         simulation = 1;
         step = 1;
-        discr_level = 5;
+        discr_level = 11;
         num_actions = 5;
     case 2
         simulation = varargin{1};
         step = 1;
-        discr_level = 5;
+        discr_level = 11;
         num_actions = 5;
     case 3
         simulation = varargin{1};
         step = varargin{2};
-        discr_level = 5;
+        discr_level = 11;
         num_actions = 5;
     case 4
         simulation = varargin{1};
@@ -36,7 +36,7 @@ switch nargin
         num_actions = varargin{4};        
 end
  sim = 0; it = 0;
- num_states = (discr_level+2)*(discr_level+1)^2*2^2;
+ num_states = (discr_level+2)*((discr_level+1)^2)*(2^2);
  visit_matrix = zeros(num_states,num_actions);
  q_matrix = zeros(num_states, num_actions);
  V = zeros(num_states,1);
