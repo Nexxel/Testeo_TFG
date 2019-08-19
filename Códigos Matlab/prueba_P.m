@@ -1,3 +1,8 @@
+%%
+%Sergio Gonzalez Muriel
+%Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
+%%
+% Test code for working with transformation matrices
 P = [554.25 0 320.5 0;
     0 554.25 240.5 0;
     0 0 1 0];

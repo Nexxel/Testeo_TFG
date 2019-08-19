@@ -1,3 +1,7 @@
+%%
+%Sergio Gonzalez Muriel
+%Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
+%%
 function [] = QLNumberSteps(filename)
     %Get the number of steps of each simulation and plot them
     %   filename: Simplified log file

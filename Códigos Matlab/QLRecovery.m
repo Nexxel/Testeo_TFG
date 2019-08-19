@@ -1,29 +1,53 @@
+%%
+%Sergio Gonzalez Muriel
+%Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
+%%
 function [] = QLRecovery(filename, varargin)
 %QLRECOVERY Recover the state given a log file, a number of simulation and
 %a number of step in the simulation
 %   filename: Simplified log file
+% Optional:
 %   simulation: Number of simulation
 %   step: Number of step in simulation
-if (nargin > 3)
-    error("QLRecovery support up to 3 variables");
+%  discr_level: Discretization level
+%  num_actions: Number of possible actions
+if (nargin > 5)
+    error("QLRecovery support up to 5 variables");
 end
 
 switch nargin
     case 1
         simulation = 1;
         step = 1;
+        discr_level = 9;
+        num_actions = 5;
     case 2
         simulation = varargin{1};
         step = 1;
+        discr_level = 9;
+        num_actions = 5;
     case 3
         simulation = varargin{1};
         step = varargin{2};
+        discr_level = 9;
+        num_actions = 5;
+    case 4
+        simulation = varargin{1};
+        step = varargin{2};
+        discr_level = varargin{3};
+        num_actions = 5;
+    case 5
+        simulation = varargin{1};
+        step = varargin{2};
+        discr_level = varargin{3};
+        num_actions = varargin{4};        
 end
  sim = 0; it = 0;
- visit_matrix = zeros(864,5);
- q_matrix = zeros(864, 5);
- V = zeros(864,1);
- Policy = zeros(864,1);
+ num_states = (discr_level+2)*((discr_level+1)^2)*(2^2);
+ visit_matrix = zeros(num_states,num_actions);
+ q_matrix = zeros(num_states, num_actions);
+ V = zeros(num_states,1);
+ Policy = zeros(num_states,1);
  fileID = fopen(filename);
  while(sim < simulation || (sim == simulation && it < step))
       C = textscan(fileID, ...
