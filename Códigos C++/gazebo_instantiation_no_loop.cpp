@@ -6,13 +6,13 @@ Code for instantiating a simulation in gazebo
 
 #include <bits/stdc++.h> 
 #include <unistd.h>
-#include <iostream>
+#include <iostream> 
 #include <string>
 #include <sstream>
 #include <math.h>
 
-#define MAX_X 2
-#define MIN_X 2
+#define MAX_X 4.45
+#define MIN_X 4.45
 #define MAX_Y 0.0
 #define MIN_Y 0.0
 // Number of box.urdf to use (box_1 z-size=0.1, box_2 z-size=0.2...)

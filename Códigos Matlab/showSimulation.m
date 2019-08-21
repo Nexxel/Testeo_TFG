@@ -2,7 +2,7 @@
 %Sergio Gonzalez Muriel
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
-function [outputArg1,outputArg2] = showSimulation(filename, simulation)
+function [] = showSimulation(filename, simulation)
 % Show the simulation in a figure
 %   Inputs:
 %       filename: The name of the log without extension
@@ -15,12 +15,11 @@ function [outputArg1,outputArg2] = showSimulation(filename, simulation)
         C = textscan(fileID, '%d %f %f %f', 1, 'delimiter', ',');
         sim = C{1};
         if(sim == simulation)
-            plot(C{2}, C{3}, 'gs');
+            figure();
+            plot(C{2}, C{3}, 'r*');
         end
     end
-    if (isempty(sim))
-        quit;
-    end
+    fclose(fileID);
     hold on;
     fileID = fopen(robot_position_log);
     sim = 0; initialPos = true;
@@ -39,12 +38,19 @@ function [outputArg1,outputArg2] = showSimulation(filename, simulation)
             end
         end
     end
-    plot(x(1), y(1), 'rd');
+    plot(x,y,'b-d');
+    plot(x(1), y(1), 'k.', 'MarkerSize', 20);
     for i = 2:size(x,2)
         quiver(x(i-1), y(i-1), x(i)-x(i-1), y(i)-y(i-1), 0, 'color', 'b');
     end
-    legend("Object position", "Initial position", "Robot movement");
-    xlabel('X'); ylabel('Y');
+    legend("Object position", "Robot trajectory", "Initial position", 'Location', 'Best');
+    xlabel('X(m)'); ylabel('Y(m)');
+    xlim([-0.4, 1.10]); ylim([-0.85, 0.85])
+    set(gca, 'XTick', -0.4:0.1:1.10);
+    set(gca, 'YTick', -0.85:0.1:0.85);
+    set(gca, 'FontSize', 20);
+    grid on;
     hold off;
+    fclose(fileID);
 end
 

@@ -20,7 +20,10 @@ function [] = QLNumberSteps(filename)
     end
     steps = [steps it];
     fclose(fileID);
-    plot(steps);
+    plot(steps, 'b-d');
     xlabel('Simulation'); ylabel('Number of steps');
+    xlim([0,56]); ylim([0,201]);
+    set(gca, 'XTick', 0:5:56);
+    set(gca, 'YTick', 0:10:201);
 end
 
