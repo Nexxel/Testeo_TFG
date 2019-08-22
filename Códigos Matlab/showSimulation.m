@@ -16,11 +16,18 @@ function [] = showSimulation(filename, simulation)
         sim = C{1};
         if(sim == simulation)
             figure();
+            % Plot circle
+            th = 0:pi/50:2*pi;
+            r = (3/9 - 0.037);
+            xunit = r * cos(th) + C{2};
+            yunit = r * sin(th) + C{3};
+            h = plot(xunit, yunit, 'r-');
+            hold on;
+            % Plot object
             plot(C{2}, C{3}, 'r*');
         end
     end
     fclose(fileID);
-    hold on;
     fileID = fopen(robot_position_log);
     sim = 0; initialPos = true;
     x = []; y = [];
@@ -43,7 +50,7 @@ function [] = showSimulation(filename, simulation)
     for i = 2:size(x,2)
         quiver(x(i-1), y(i-1), x(i)-x(i-1), y(i)-y(i-1), 0, 'color', 'b');
     end
-    legend("Object position", "Robot trajectory", "Initial position", 'Location', 'Best');
+    legend("Object reachable zone","Object position", "Robot trajectory", "Initial position", 'Location', 'Best');
     xlabel('X(m)'); ylabel('Y(m)');
     xlim([-0.4, 1.10]); ylim([-0.85, 0.85])
     set(gca, 'XTick', -0.4:0.1:1.10);

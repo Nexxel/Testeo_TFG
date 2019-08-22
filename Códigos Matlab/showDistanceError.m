@@ -16,4 +16,5 @@ while(~(feof(fileID)))
 end
 fclose(fileID);
 plot(real_dist, errors, 'b-');
+xlabel('Real distance(m)'); ylabel('Error(m)');
 grid on;
