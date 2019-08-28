@@ -25,5 +25,6 @@ function [] = QLNumberSteps(filename)
     xlim([0,56]); ylim([0,201]);
     set(gca, 'XTick', 0:5:56);
     set(gca, 'YTick', 0:10:201);
+    set(gca, 'FontSize', 20);
 end
 
