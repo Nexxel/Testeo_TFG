@@ -15,17 +15,17 @@ void getStateFromNumber(int number, int &dist_d, int &ang_d, int &alt_d, bool &o
 int main(int argc, char const *argv[])
 {
     /*
-    //Insert element
+    //Inserts element
     sparse_matrix.insert(3,4) = 20.0; // sparse_matrix.coeffRef(3,4) += 20.0
     printf("Inserting 20.0...\n");
     sparse_matrix.insert(1,4) = 3.0;
     printf("Inserting 3.0...\n");
 
-    // Check number of non-zero elements
+    // Checks number of non-zero elements
     int nonzeros = sparse_matrix.nonZeros();
     printf("Non-zeros elements: %d\n\n", nonzeros);
 
-    // Print non-zero elements
+    // Prints non-zero elements
     for(int k=0; k<sparse_matrix.outerSize(); ++k){
         for (SparseMatrix<double>::InnerIterator it(sparse_matrix, k); it; ++it){
             printf("Value %.2f\n",it.value());
@@ -35,7 +35,7 @@ int main(int argc, char const *argv[])
         }
     }
 
-    // Get an element of the sparse matrix
+    // Gets an element of the sparse matrix
     printf("\nValue at (0,0): %.2f\n",sparse_matrix.coeffRef(0,0));
     nonzeros = sparse_matrix.nonZeros();
     printf("Non-zeros elements after accesing a 0 element: %d\n", nonzeros);

@@ -3,8 +3,8 @@
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
 function [] = QLNumberPicks(filename)
-    %Get the number times the robot picks the object while learning and
-    % print it
+    %Gets the number times the robot picks the object while learning and
+    % prints it
     %   filename: Simplified log file
     fileID = fopen(filename);
     sim = 0;

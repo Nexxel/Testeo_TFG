@@ -24,7 +24,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     int status;
-    // Open an empty world in gazebo
+    // Opens an empty world in gazebo
     status = system("xterm -hold -e \"roslaunch gazebo_ros empty_world.launch paused:=true\" &");
     if (status == 0){
         sleep(6);
@@ -81,10 +81,10 @@ int main(int argc, char const *argv[])
         system(xterm_wall_str);
         sleep(3);
 
-        // Instantiate a turtlebot in that empty world
+        // Instantiates a turtlebot in that empty world
         system("xterm -hold -e \"roslaunch crumb_gazebo test.launch\" &");
         sleep(10);
-        // Unpause simulation
+        // Unpauses simulation
         system("rosservice call /gazebo/unpause_physics");   
     }else{
         system("killall -9 xterm gzserver");

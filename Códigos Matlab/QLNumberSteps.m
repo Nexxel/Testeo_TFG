@@ -3,7 +3,7 @@
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
 function [] = QLNumberSteps(filename)
-    %Get the number of steps of each simulation and plot them
+    %Gets the number of steps of each simulation and plots them
     %   filename: Simplified log file
     sim = 1; it = 0;
     fileID = fopen(filename);

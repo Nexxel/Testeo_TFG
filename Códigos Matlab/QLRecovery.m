@@ -3,7 +3,7 @@
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
 function [] = QLRecovery(filename, varargin)
-%QLRECOVERY Recover the state given a log file, a number of simulation and
+%QLRECOVERY Recovers the state given a log file, a number of simulation and
 %a number of step in the simulation
 %   filename: Simplified log file
 % Optional:

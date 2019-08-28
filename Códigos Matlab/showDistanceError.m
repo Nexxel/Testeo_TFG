@@ -2,7 +2,7 @@
 %Sergio Gonzalez Muriel
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
-% Show the distance error of our implementation
+% Shows the distance error of our implementation
 log = 'distance_error_log_4m.txt';
 fileID = fopen(log);
 real_dist = [];

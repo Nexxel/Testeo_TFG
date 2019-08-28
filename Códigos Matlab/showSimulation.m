@@ -3,7 +3,7 @@
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
 function [] = showSimulation(filename, simulation)
-% Show the simulation in a figure
+% Shows the simulation in a figure
 %   Inputs:
 %       filename: The name of the log without extension
 %       simulation: simuation number to show
