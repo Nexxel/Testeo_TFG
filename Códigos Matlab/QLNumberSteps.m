@@ -22,8 +22,8 @@ function [] = QLNumberSteps(filename)
     fclose(fileID);
     plot(steps, 'b-d');
     xlabel('Simulation'); ylabel('Number of steps');
-    xlim([0,56]); ylim([0,201]);
-    set(gca, 'XTick', 0:5:56);
+    xlim([0,130]); ylim([0,201]);
+    set(gca, 'XTick', 0:5:130);
     set(gca, 'YTick', 0:10:201);
     set(gca, 'FontSize', 20);
 end
