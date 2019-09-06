@@ -1,7 +1,7 @@
 /*
 Sergio Gonzalez Muriel
 Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
-Code for instantiating a simulation in gazebo
+Code for instantiating an episode of simulation in gazebo
 */
 
 #include <bits/stdc++.h> 
