@@ -3,12 +3,12 @@
 %Degree thesis:  Reinforcement learning for object manipulation by a robotic arm
 %%
 function [] = QLRecovery(filename, varargin)
-%QLRECOVERY Recovers the state given a log file, a number of simulation and
-%a number of step in the simulation
+%QLRECOVERY Recovers the state given a log file, a number of episode and
+%a number of step in the episode
 %   filename: Simplified log file
 % Optional:
-%   simulation: Number of simulation
-%   step: Number of step in simulation
+%   episode: Number of episode
+%   step: Number of step in episode
 %  discr_level: Discretization level
 %  num_actions: Number of possible actions
 if (nargin > 5)
@@ -17,44 +17,44 @@ end
 
 switch nargin
     case 1
-        simulation = 1;
+        episode = 1;
         step = 1;
         discr_level = 9;
         num_actions = 5;
     case 2
-        simulation = varargin{1};
+        episode = varargin{1};
         step = 1;
         discr_level = 9;
         num_actions = 5;
     case 3
-        simulation = varargin{1};
+        episode = varargin{1};
         step = varargin{2};
         discr_level = 9;
         num_actions = 5;
     case 4
-        simulation = varargin{1};
+        episode = varargin{1};
         step = varargin{2};
         discr_level = varargin{3};
         num_actions = 5;
     case 5
-        simulation = varargin{1};
+        episode = varargin{1};
         step = varargin{2};
         discr_level = varargin{3};
         num_actions = varargin{4};        
 end
- sim = 0; it = 0;
+ ep = 0; it = 0;
  num_states = (discr_level+2)*((discr_level+1)^2)*(2^2);
  visit_matrix = zeros(num_states,num_actions);
  q_matrix = zeros(num_states, num_actions);
  V = zeros(num_states,1);
  Policy = zeros(num_states,1);
  fileID = fopen(filename);
- while(sim < simulation || (sim == simulation && it < step))
+ while(ep < episode || (ep == episode && it < step))
       C = textscan(fileID, ...
      '%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %q %f %d %f %f %d', ...
      1, 'delimiter', ',');
-    if(C{1} <= simulation)
-         sim = C{1};
+    if(C{1} <= episode)
+         ep = C{1};
          it = C{2};
          s = C{3};
          s_dist = C{4};
@@ -80,7 +80,7 @@ end
     end
  end
  fclose(fileID);
- clear filename fileID C ans simulation step varargin; 
+ clear filename fileID C ans episode step varargin; 
  save('QL_Recovery');
 end
 

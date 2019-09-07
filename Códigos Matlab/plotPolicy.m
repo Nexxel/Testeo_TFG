@@ -26,4 +26,5 @@ for i=1:5
     ylabel('Distance');
     caxis([0 (max(max(max(pairCount))))])
     grid on;
+    set(gca, 'FontSize', 40);
 end

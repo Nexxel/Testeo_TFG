@@ -17,4 +17,7 @@ end
 fclose(fileID);
 plot(real_dist, errors, 'b-');
 xlabel('Real distance (m)'); ylabel('Error (m)');
+set(gca, 'YTick', 0:0.05:max(errors));
+set(gca, 'XTick', 0:0.3:4);
+set(gca,'FontSize',40);
 grid on;
