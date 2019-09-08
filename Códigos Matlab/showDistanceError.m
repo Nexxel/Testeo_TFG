@@ -15,9 +15,11 @@ while(~(feof(fileID)))
     end
 end
 fclose(fileID);
-plot(real_dist, errors, 'b-');
+plot(real_dist, errors, 'b-', 'LineWidth', 3);
 xlabel('Real distance (m)'); ylabel('Error (m)');
 set(gca, 'YTick', 0:0.05:max(errors));
 set(gca, 'XTick', 0:0.3:4);
 set(gca,'FontSize',40);
 grid on;
+ax = gca;
+ax.GridAlpha = 0.5;
